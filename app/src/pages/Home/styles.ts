@@ -1,14 +1,28 @@
 import styled from "styled-components";
 
-const MainDiv = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: red;
+
+  background-color: #000;
   min-height: 100vh;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  max-width: 100vw;
 `;
 
-export { MainDiv };
+const DivMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+
+  height: 90%;
+  width: 100%;
+`;
+
+const DivHeader = styled.div`
+  display: flex;
+  height: 10%;
+`;
+
+export { Container, DivMain, DivHeader };
