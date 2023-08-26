@@ -1,27 +1,39 @@
 import { Movie } from "@/types/movie";
 import { Star } from "phosphor-react";
-import { DivCard, DivImage } from "./styles";
+import { DivCard, DivImage, DivTitle, DivFooterCard } from "./styles";
 
 type Props = {
   movie: Movie;
+  open: boolean;
+  handleClose: React.Dispatch<React.SetStateAction<boolean>>;
+  setId: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function Card({ movie }: Props) {
+export default function Card({ movie, open, handleClose, setId }: Props) {
   const image = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const year = movie.release_date.slice(0, 4);
   return (
-    <DivCard>
+    <DivCard
+      onClick={() => {
+        setId(movie.id);
+        handleClose(!open);
+      }}
+    >
       <DivImage>
         <img src={image} alt="posterPath" />
       </DivImage>
-      <h1>{movie.title}</h1>
-      <div>
-        <p>{year}</p>
+      <DivTitle>
+        <h1>{movie.title}</h1>
+      </DivTitle>
+      <DivFooterCard>
         <div>
-          <Star size={16} color="#90912b" weight="thin" />
+          <p>{year}</p>
+        </div>
+        <div>
+          <Star size={16} color="#ffef0d" weight="fill" />
           <p>{movie.vote_average}</p>
         </div>
-      </div>
+      </DivFooterCard>
     </DivCard>
   );
 }

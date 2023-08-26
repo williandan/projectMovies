@@ -9,8 +9,21 @@ export const GlobalStyles = createGlobalStyle`
        font-family: 'Open Sans', sans-serif; 
    }
 
+   html { font-size: 62.5%; }
+
+   h1{
+    color: white;
+   }
+
+   span{
+    color: gray
+   }
+
+   p{
+    color: gray
+   }
+
    img{
-    width: 100%;
-    height: 100%;
+    pointer-events:none
    }
 `;
